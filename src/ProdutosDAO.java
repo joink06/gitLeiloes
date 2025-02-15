@@ -17,15 +17,23 @@ import java.util.ArrayList;
 
 public class ProdutosDAO {
     
-    Connection conn;
-    PreparedStatement prep;
-    ResultSet resultset;
+    Connection con;
+    PreparedStatement st;
+    ResultSet rs;
     ArrayList<ProdutosDTO> listagem = new ArrayList<>();
     
-    public void cadastrarProduto (ProdutosDTO produto){
-        
-        
-        //conn = new conectaDAO().connectDB();
+    public void salvar (ProdutosDTO p){
+        int status;
+        try{
+            con = new conectaDAO().connectDB();
+            st = con.prepareStatement("insert into produtos (nome,valor,status) values (?,?,?)");
+            st.setString(1, p.getNome());
+            st.setInt(2, p.getValor());
+            st.setString(3, p.getStatus());
+            status = st.executeUpdate();
+                    
+        }catch(Exception ex){
+        }
         
         
     }
