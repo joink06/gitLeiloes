@@ -69,7 +69,6 @@ public class ProdutosDAO {
     }
     
 <<<<<<< HEAD
-<<<<<<< HEAD
     public void venderProduto(int idProduto){
         try{
             con = new conectaDAO().connectDB();
@@ -81,8 +80,6 @@ public class ProdutosDAO {
         }
     }
     
-=======
->>>>>>> parent of 3aeee4e (Adicionada a função de vender produtos)
 =======
 >>>>>>> parent of 3aeee4e (Adicionada a função de vender produtos)
     
