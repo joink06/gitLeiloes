@@ -1,9 +1,5 @@
 
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -140,22 +136,12 @@ public class listagemVIEW extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderActionPerformed
-        if(!id_produto_venda.getText().isEmpty()){
-            
-            int id = Integer.parseInt(id_produto_venda.getText());
+        String id = id_produto_venda.getText();
         
         ProdutosDAO produtosdao = new ProdutosDAO();
         
-            try {
-                produtosdao.venderProduto(id);
-                JOptionPane.showMessageDialog(rootPane, "Produto vendido com sucesso!");
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(rootPane, "Erro! "+ ex.getMessage());
-            }
+        //produtosdao.venderProduto(Integer.parseInt(id));
         listarProdutos();
-        }else{
-            JOptionPane.showMessageDialog(rootPane, "Insira um ID primeiro!");
-        }
     }//GEN-LAST:event_btnVenderActionPerformed
 
     private void btnVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendasActionPerformed

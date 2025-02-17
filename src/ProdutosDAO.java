@@ -12,7 +12,6 @@ import java.sql.PreparedStatement;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 
@@ -66,19 +65,6 @@ public class ProdutosDAO {
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null, "Erro na listagem! "+ ex.getMessage());
             return null;
-        }
-    }
-    
-    public void venderProduto(int idProduto) throws SQLException{
-        con = new conectaDAO().connectDB();
-        
-        try{
-            st = con.prepareStatement("update produtos set status = 'Vendido' where id = ?");
-            st.setInt(1, idProduto);
-            st.executeUpdate();
-            
-        }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null, "Erro! "+ ex.getMessage());
         }
     }
     
