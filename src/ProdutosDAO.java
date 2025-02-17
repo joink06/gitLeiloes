@@ -68,6 +68,17 @@ public class ProdutosDAO {
         }
     }
     
+    public void venderProduto(int idProduto){
+        try{
+            con = new conectaDAO().connectDB();
+            st = con.prepareStatement("update produtos set status = 'Vendido' where id = ?");
+            st.setInt(1, idProduto);
+            st.executeUpdate();
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "Erro na modificação! "+ ex.getMessage());
+        }
+    }
+    
     
     
         
